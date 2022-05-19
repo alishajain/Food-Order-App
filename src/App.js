@@ -3,23 +3,23 @@ import { useState } from 'react';
 import Header from './Components/Layout/Header';
 import Meals from './Components/Meals/Meals';
 import Cart from './Components/Cart/Cart';
-import CartProvider from './Store/cartProvider';
+import CartProvider from './Store/CartProvider';
 
 function App() {
-   const [castIsShown, setCartIsShown] = useState(false);
+  const [cartIsShown, setCartIsShown] = useState(false);
 
-   const showCartHandler = () => {
+  const showCartHandler = () => {
     setCartIsShown(true);
-   };
+  };
 
-   const hideCartHandler = () => {
-     setCartIsShown(false);
-   };
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
 
   return (
     <CartProvider>
-      {castIsShown && <Cart onClose={hideCartHandler}/>}
-      <Header onShowCart={showCartHandler}/>
+      {cartIsShown && <Cart onClose={hideCartHandler} />}
+      <Header onShowCart={showCartHandler} />
       <main>
         <Meals />
       </main>
